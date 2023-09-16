@@ -2,26 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: 'Didact Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Didact Gothic'), local('Didact Gothic'),
+    url('/assets/fonts/DidactGothic-Regular.woff2') format('woff2'),
+    url('/assets/fonts/DidactGothic-Regular.woff') format('woff');
+  font-display: swap;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Didact Gothic';
+}
+
+.curve {
+  stroke: black !important;
+  fill: transparent;
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation: dash 1s linear forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+    fill: black;
+  }
 }
